@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+    <script src="todo.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://kit.fontawesome.com/1efb54cff2.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="sidebar-toggle">
+      <input type="checkbox" id="toggleSideBar" class="toggleSideBar visually-hidden">
+      <label for="toggleSideBar" class="toggle-icon">
+        <i class="fas fa-bars fa-2x"></i>
+      </label>
+    </div>
+    
+    
+    <div class="leftTabs">
+      
+      <div class="colorMode">
+        <div class="titleMode"> Colors </div>
+        <button type="button" class="darkMode"> Light Mode </button>
+      </div>
+      
+      <div class="displayMode">
+        <div class="titleMode"> Formatting </div>
+        <button type="button" class="cardDisplay">Row</button>
+      </div>
+
+      <div class="widthMode">
+        <div class="titleMode"> Width </div>
+        <div class="slidecontainer">
+          <input type="range" min="20" max="90" value="90" class="slider" id="myRange">
+          <span id="demo"></span>
+        </div>
+      </div>
+
+    </div>
+    <div class="mainTodo">
+      <div class="header">
+        <h1 class="ToDoTitle">To-Do List</h1>
+        <div class="divider"/>
+      </div>
+  
+      <div class="functions">
+        <button class="addNewTask" type="button" id="add-toplevel-task"> 
+          <i class="fa-solid fa-plus"></i> New Task
+        </button>
+      </div>
+  
+  
+      <ul id="toplevel-tasks" class="taskContainer">
+        <li class="task">
+          <div class="task-row">
+            <div class="titleCheck">
+              <input type="checkbox" class="task-done">
+              <input type="text" class="mainText">
+            </div>
+            <div class="taskFunctions">
+              <button type="button" class="add-subtask"><i class="fa-solid fa-plus"></i></button>
+              <button type="button" class="delete-task"><i class="fa-solid fa-trash"></i></button>
+            </div>
+  
+          </div>
+          <ul class="subtasks"></ul>
+        </li>
+      </ul>
+
+    </div>
+   
+  </body>
+</html>

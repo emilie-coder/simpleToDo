@@ -1,0 +1,405 @@
+/*_________________________________________________________________________________________________*/
+/*                                                                                                 */
+/*                             Style sheet for to do list                                          */
+/*_________________________________________________________________________________________________*/
+
+
+
+
+/*_________________________________________________________________________________________________*/
+/*                                                                                                 */
+/*                             color variables to toggle                                           */
+/*_________________________________________________________________________________________________*/
+:root {
+    --accent-color: #3aafa9;        
+    --background-color: #feffff;   
+    --text-color: #17252a;
+    --opaque-grey: #dddddd;          
+    --opaque-grey2: rgb(243, 243, 243);     
+    --drop-shadow: rgba(0, 0, 0, 0.08);      
+}
+
+/* Dark Mode variables */
+.dark-mode {
+    --accent-color: #3aafa9;       
+    --background-color: rgb(33, 33, 33);    
+    --text-color: #e9e8e8;          
+    --opaque-grey: rgb(24, 24, 24);         
+    --opaque-grey2: #464646;
+    --drop-shadow: rgba(255, 255, 255, 0.08);   
+}
+
+
+
+/*_________________________________________________________________________________________________*/
+/*                                                                                                 */
+/*                            base defults                                                         */
+/*_________________________________________________________________________________________________*/
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    color: var(--text-color)
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+
+/*_________________________________________________________________________________________________*/
+/*                                                                                                 */
+/*                             left hand toggle details such as color and formatting               */
+/*_________________________________________________________________________________________________*/
+
+.leftTabs{
+    display: flex;
+    flex-direction: column;
+    width: 15vw;
+    background-color: var(--opaque-grey2);
+    padding-top: 10%;
+    height: 100% auto;
+
+}
+
+
+.colorMode button, .displayMode button {
+    border: 0 solid var(--opaque-grey);
+    border-radius: 0.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    text-align: center;
+    transition: all .1s cubic-bezier(.4, 0, .2, 1);
+    box-shadow: 0px 1px 2px var(--opaque-grey);
+  }
+  
+  .colorMode button:hover, .displayMode button:hover {
+    background-color: var(--text-color);
+    color: var(--background-color);
+  }
+  
+
+.colorMode, .displayMode, .widthMode{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 20px;
+}
+
+.colorMode button, .displayMode button{
+    margin: 10px;
+    background-color: var(--opaque-grey);
+}
+
+.titleMode{
+    justify-self:flex-start;
+}
+
+.mainTodo{
+    width: 85vw;
+}
+
+.toggle-icon i {
+    transition-delay: 20ms;
+}
+.toggle-icon i:hover {
+
+    transform: scale(1.1);
+}
+
+.toggle-icon i:active {
+
+    transform: scale(0.9);
+}
+
+
+.sidebar-toggle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/*_________________________________________________________________________________________________*/
+/*                                                                                                 */
+/*                             header and top right details                                        */
+/*_________________________________________________________________________________________________*/
+  
+.header, .functions {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+
+.header{
+    margin-top: 80px;
+}
+
+.divider{
+    border-top: 1px solid var(--opaque-grey);
+    width: 100%; 
+    margin: 20px auto;
+}
+
+/*_________________________________________________________________________________________________*/
+/*                                                                                                 */
+/*                             new task button at the top                                          */
+/*_________________________________________________________________________________________________*/
+.addNewTask{
+    min-width:100px;
+    width: 30%;
+}
+
+.addNewTask {
+  background-color: var(--accent-color);
+  border: 0 solid var(--opaque-grey);
+  border-radius: 0.5rem;
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 0.5rem;
+  text-align: center;
+  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  box-shadow: 0px 1px 2px var(--opaque-grey);
+}
+
+.addNewTask:hover {
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+
+/*_________________________________________________________________________________________________*/
+/*                             containers of tasks                                                 */
+/*                             grid/card view and list view (default)                              */
+/*_________________________________________________________________________________________________*/
+
+.taskContainer{
+    width: 100%;
+    max-height: 70vh;
+    margin-left: 30px;
+    overflow-y: auto; 
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0;
+}
+
+.card-view {
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap;
+    padding: 0;
+    
+  }
+
+
+
+/*_________________________________________________________________________________________________*/
+/*                             task styling                                                        */
+/*_________________________________________________________________________________________________*/
+
+.task{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    margin-left: 10px;
+    padding: 20px;
+    width: 90%; 
+    border-radius: 0.5rem;
+    box-shadow: var(--drop-shadow) 0px 6px 24px 0px, var(--drop-shadow) 0px 0px 0px 1px;
+}
+
+.mainText{
+
+    padding: 6px 12px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    background-clip: padding-box;
+    border: 1px solid var(--background-color);
+    appearance: none;
+    border-radius: 4px;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    
+    :focus{
+        color: #212529;
+        background-color: #fff;
+        border-color: #86b7fe;
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem var(--text-color);
+    }
+}
+
+.mainText:hover{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+}
+
+
+.task-row{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.titleCheck{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    
+}
+.mainText{
+    width: 85%;
+}
+
+.taskFunctions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.task-done:checked ~ .mainText {
+    text-decoration: line-through;
+  }
+  
+  
+  .checked {
+    background-color: var(--opaque-grey); 
+
+    .mainText{
+        background-color: var(--opaque-grey); 
+        border: none;
+    }
+  }
+
+/*_________________________________________________________________________________________________*/
+/*                          subtask styling                                                        */
+/*_________________________________________________________________________________________________*/
+.subtasks .task{
+    width: 100%;
+    border-radius: 0.0rem;
+    box-shadow: none;
+    padding: 0rem;
+    margin: 0rem;
+    padding-right: 0;
+    margin-right: 0;
+    border-radius: 0.5rem;
+}
+
+
+.add-subtask, .delete-task {
+background-color: var(--opaque-grey2);
+border: 1px solid var(--opaque-grey);
+border-radius: 4px;
+color: var(--text-color);
+cursor: pointer;
+font-family: arial,sans-serif;
+padding: 5px;
+margin: 5px;
+text-align: center;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+white-space: pre;
+}
+    
+.add-subtask i, .delete-task i {
+    pointer-events: none;
+}
+
+.add-subtask:hover , .delete-task:hover {
+    border-color: var(--background-color);
+    box-shadow: rgba(0, 0, 0, .1) 0 1px 1px;
+    color: var(--text-color);
+}
+    
+
+
+
+/*_________________________________________________________________________________________________*/
+/*                          iPhone version                                                         */
+/*_________________________________________________________________________________________________*/
+@media only screen and (max-width:750px) {
+    /* Hide left panel */
+    .leftTabs {
+      display: none;
+    }
+    
+    /* Expand mainTodo to full width */
+    .mainTodo {
+      width: 100vw;
+    }
+  }
+
+
+/*_________________________________________________________________________________________________*/
+
+/*                  lider css from https://www.w3schools.com/howto/howto_js_rangeslider.asp        */
+
+/*_________________________________________________________________________________________________*/
+.slidecontainer {
+    display: flex;
+    width: 100%; 
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
+    padding-top: 20px;;
+  }
+  
+  .slider {
+    -webkit-appearance: none;  
+    appearance: none;
+    width: 100%;                    
+    height: 25px;           
+    background: var(--opaque-grey); 
+    outline: none; 
+    opacity: 0.7; 
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .slider:hover {
+    opacity: 1; 
+  }
+   
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    appearance: none;
+    width: 25px; 
+    height: 25px;
+    background: var(--accent-color);
+    cursor: pointer; 
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px; 
+    background: var(--accent-color);
+    cursor: pointer; 
+  }
+
